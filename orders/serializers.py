@@ -53,6 +53,7 @@ class OrderSerializer(serializers.ModelSerializer):
             "zipcode",
             "phone",
             "total_price",
+            "stripe_token",
             "items",
         )
     

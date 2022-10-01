@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+STRIPE_SECRET_KEY = 'sk_test_51Lo1Q8DO8rz8jbK3JhJRaU8xSulpvCsDsotpsEzszSYbti3YLetutXVMnqEjFDm294OMuGP7sJglpmtj7kRQQ8uE00d7Jw7Ful'
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
