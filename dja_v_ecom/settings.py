@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from corsheaders.defaults import default_headers
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,14 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@%o$%b!mgxwjj88#2=u+m77_8sly)9d)edf+s2@&y1t-_=)$#p'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-STRIPE_SECRET_KEY = 'sk_test_51Lo1Q8DO8rz8jbK3JhJRaU8xSulpvCsDsotpsEzszSYbti3YLetutXVMnqEjFDm294OMuGP7sJglpmtj7kRQQ8uE00d7Jw7Ful'
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
