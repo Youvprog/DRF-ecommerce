@@ -4,10 +4,14 @@ from django.shortcuts import render
 from .serializers import ProductSerializer
 
 from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView
+from rest_framework.pagination import PageNumberPagination
+
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 from .models import Product
+
 
 class LatestProductList(APIView):
     def get(self, request, format=None):
@@ -34,8 +38,11 @@ def get_all_products(request):
     s = ProductSerializer(all_products, many=True)
     return Response(s.data)
 
-
-
+class AlltProductList(ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    pagination_class = PageNumberPagination
+    
 
 
 #@api_view(['GET'])
